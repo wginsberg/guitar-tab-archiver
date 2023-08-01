@@ -1,0 +1,34 @@
+<style>
+    main {
+        max-width: 720px;
+        margin: auto;
+    }
+    ol {
+        padding-left: 0;
+    }
+    li {
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 6px;
+    }
+    li:hover {
+        background-color: greenyellow;
+
+    }
+    button {
+        cursor: pointer;
+    }
+    pre {
+        font-size: large;
+        padding-top: 12px;
+    }
+</style>
+<title>Tab Archiver</title>
+<main id="main">
+    <a id="download" href="#">Download all tabs</a>
+    <ol id="tabs"></ol>
+    <pre id="pre"></pre>    
+</main>
+<script src="./options.js"></script>
+<script src="./jszip.min.js"></script>
+<script src="./download.js"></script>

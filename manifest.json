@@ -1,0 +1,25 @@
+{
+  "manifest_version": 3,
+  "name": "Tab Archiver",
+  "version": "1.0.1",
+  "description": "Archives guitar tabs on ultimate-guitar.com",
+  "content_scripts": [
+    {
+      "matches": ["*://*.ultimate-guitar.com/*"],
+      "js": ["index.js"]
+    }
+  ],
+  "permissions": ["storage"],
+  "action": {
+    "default_popup": "popup.html"
+  },
+  "options_ui": {
+    "page": "options.html",
+    "open_in_tab": true
+  },
+  "browser_specific_settings": {
+    "gecko": {
+      "id": "ug_archive@wginsberg.ca"
+    }
+  }
+}
