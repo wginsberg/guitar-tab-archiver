@@ -3,22 +3,29 @@ const ul = document.getElementById("tabs")
 chrome.storage.local.get()
     .then(storage => {
         const tabNames = Object.keys(storage).sort()
-        console.log({tabNames})
+
         for(const name of tabNames) {
             if (name.startsWith("meta.")) continue
 
             const tab = storage[name]
 
-            const a = document.createElement("button")
-            a.textContent = name            
-            a.onclick = () => {
+            const li = document.createElement("li")
+            const button = document.createElement("button")
+            button.textContent = name            
+            button.onclick = () => {
                 const pre = document.getElementById("pre")
                 pre.textContent = tab
-                pre.scrollIntoView({behavior:"smooth"})
-            }
+                setTimeout(() => pre.scrollIntoView({behavior:"smooth"}), 150)
+                document.title = name
 
-            const li = document.createElement("li")
-            li.appendChild(a)
+                // Set id for styling
+                const lastSelected = document.getElementById("selected")
+                if (lastSelected) {
+                    lastSelected.id = ""
+                }
+                li.id = "selected"
+            }
+            li.appendChild(button)
 
             const deleteButton = document.createElement("button")
             deleteButton.textContent = "X"
