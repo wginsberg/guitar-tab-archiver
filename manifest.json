@@ -9,7 +9,7 @@
       "js": ["index.js"]
     }
   ],
-  "permissions": ["storage"],
+  "permissions": ["storage", "identity"],
   "action": {
     "default_popup": "popup.html"
   },
@@ -17,9 +17,9 @@
     "page": "options.html",
     "open_in_tab": true
   },
-  "browser_specific_settings": {
-    "gecko": {
-      "id": "ug_archive@wginsberg.ca"
-    }
+  "key": "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAggUKHjSlWXiADkOcCDK+ERCdHhNvF27hhHH/g5OuT3SvUQoYtyh2ZvA9Q6KFevnqvjIfAv1VlhkvHqxWV4LzykJMDWwrvVu2GT4ktrOIYrIFTzFuhdOtgVuZfc9DAdymN7ioHTMG6aFNnGiUQj9DhwGucD4HLCpjsgWdd1OHIyvi4MkATLa/+kMe2WMLuzJ9FfIlx5seG2XQBGxCrAJOf9DFT+8cy7ey0xpA5s7Ba5liu2Qs3+PM3FdwVsUgrxuIJnXgmGmsVx+eGhsD2IFKswLAWDdecZkCEIU1wLMKkaCQNjXJk++DV9r3N8EnvDH9lu+1krxJetXJOWWZDLdOjwIDAQAB",
+  "oauth2": {
+    "client_id": "993606245930-3fgtksjef3n23nc1oofllueavd6nq8eb.apps.googleusercontent.com",
+    "scopes":["https://www.googleapis.com/auth/drive.file"]
   }
 }
