@@ -4,14 +4,26 @@ chrome.storage.local.get()
     .then(storage => {
         const tabNames = Object.keys(storage).sort()
 
+        let currentArtistName
         for(const name of tabNames) {
             if (name.startsWith("meta.")) continue
+
+            // Add artist name heading
+            const [artistName, songName] = name.split(" - ")
+            if (artistName !== currentArtistName) {
+                currentArtistName = artistName
+                const h3 = document.createElement("h3")
+                h3.textContent = artistName
+                const hr = document.createElement("hr")
+                ul.append(h3)
+                ul.append(hr)
+            }
 
             const tab = storage[name]
 
             const li = document.createElement("li")
             const button = document.createElement("button")
-            button.textContent = name            
+            button.textContent = songName            
             button.onclick = () => {
                 const pre = document.getElementById("pre")
                 pre.textContent = tab

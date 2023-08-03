@@ -3,6 +3,10 @@
         max-width: 720px;
         margin: auto;
     }
+    #export_buttons {
+        display: flex;
+        justify-content: space-between;
+    }
     ol {
         padding-left: 0;
     }
@@ -27,8 +31,10 @@
 </style>
 <title>Tab Archiver</title>
 <main id="main">
-    <a id="download" href="#">Download all tabs</a>
-    <a id="google_drive" href="#">Sync to Google Drive</a>
+    <div id="export_buttons">
+        <a id="download" href="#">Download all tabs</a>
+        <a id="google_drive" href="#">Sync to Google Drive</a>
+    </div>
     <ol id="tabs"></ol>
     <pre id="pre"></pre>    
 </main>
