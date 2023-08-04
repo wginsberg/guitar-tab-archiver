@@ -1,41 +1,69 @@
+<link rel="stylesheet" href="./normalize.css">
+<link rel="stylesheet" href="./skeleton.css">
 <style>
     main {
-        max-width: 720px;
         margin: auto;
+        max-width: 680px;
     }
     #export_buttons {
         display: flex;
         justify-content: space-between;
+        margin-bottom: 3rem;
+    }
+    #tabs h3 {
+        margin-top: 3rem;
+    }
+    hr {
+        margin-top: 0
     }
     ol {
-        padding-left: 0;
+        list-style: none;
     }
     li {
         display: flex;
         justify-content: space-between;
-        margin-bottom: 6px;
+        cursor: pointer;
+        align-items: center;
+        border: 2px solid lightgray;
+        border-radius: 8px;
+        padding: 0 0 0 1rem;
     }
     li:hover {
-        background-color: lightsteelblue;
+        box-shadow: 4px 4px 6px 1px lightgray;
     }
-    li#selected * {
-        font-weight: bold;
+    li:hover button.delete {
+        visibility: visible;
     }
-    button {
-        cursor: pointer;
+    li a {
+        padding: 1rem 0;
     }
-    pre {
-        font-size: large;
-        padding-top: 12px;
+    button.delete {
+        visibility: hidden;
+        padding: 0 1.5rem;
+        border-top: none;
+        border-right: none;
+        border-bottom: none;
+        border-radius: 0;
+    }
+    li > * {
+        margin-bottom: 0;
+    }
+    #tab_heading {
+        padding-top: 2rem;
+    }
+    #tab_heading span {
+        white-space: nowrap;
     }
 </style>
 <title>Tab Archiver</title>
 <main id="main">
+    <h1>Your <em>own</em> guitar tab archive</h1>
     <div id="export_buttons">
         <a id="download" href="#">Download all tabs</a>
         <a id="google_drive" href="#">Sync to Google Drive</a>
     </div>
     <ol id="tabs"></ol>
+    <h2 id="tab_heading"></h2>
     <pre id="pre"></pre>    
 </main>
 <script src="./options.js"></script>

@@ -22,25 +22,27 @@ chrome.storage.local.get()
             const tab = storage[name]
 
             const li = document.createElement("li")
-            const button = document.createElement("button")
+            const button = document.createElement("a")
             button.textContent = songName            
-            button.onclick = () => {
+            li.onclick = event => {
+                if (event.target.tagName === "BUTTON") return
+
+                const tab_heading = document.getElementById("tab_heading")
+                tab_heading.innerHTML = `<span>${artistName}</span> - <span>${songName}</span>`
+
                 const pre = document.getElementById("pre")
                 pre.textContent = tab
-                setTimeout(() => pre.scrollIntoView({behavior:"smooth"}), 150)
+                setTimeout(() => tab_heading.scrollIntoView({behavior:"smooth"}), 150)
                 document.title = name
-
-                // Set id for styling
-                const lastSelected = document.getElementById("selected")
-                if (lastSelected) {
-                    lastSelected.id = ""
-                }
-                li.id = "selected"
             }
             li.appendChild(button)
 
             const deleteButton = document.createElement("button")
-            deleteButton.textContent = "X"
+            const deleteButtonLabel = `Delete ${name}`
+            deleteButton.title = deleteButtonLabel
+            deleteButton.ariaLabel = deleteButtonLabel
+            deleteButton.classList.add("delete")
+            deleteButton.innerHTML = "&#10060;"
             deleteButton.onclick = () => {
                 const confirmation = window.confirm(`Are you sure you want to delete ${name}?`)
                 if (!confirmation) return
