@@ -4,6 +4,12 @@ chrome.storage.local.get()
     .then(storage => {
         const tabNames = Object.keys(storage).sort()
 
+        if (tabNames.length === 0) {
+            document.getElementById("loading").hidden = "hidden"
+            document.getElementById("error").hidden = ""
+            return
+        }
+
         let currentArtistName
         for(const name of tabNames) {
             if (name.startsWith("meta.")) continue
@@ -12,7 +18,7 @@ chrome.storage.local.get()
             const [artistName, songName] = name.split(" - ")
             if (artistName !== currentArtistName) {
                 currentArtistName = artistName
-                const h3 = document.createElement("h3")
+                const h3 = document.createElement("h5")
                 h3.textContent = artistName
                 const hr = document.createElement("hr")
                 ul.append(h3)
@@ -65,4 +71,7 @@ chrome.storage.local.get()
             li.append(deleteButton)
             ul.appendChild(li)
         }
+
+        document.getElementById("loading").hidden = "hidden"
+        document.getElementById("loaded").hidden = ""
     })

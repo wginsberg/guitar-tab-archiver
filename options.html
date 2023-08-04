@@ -10,11 +10,12 @@
         justify-content: space-between;
         margin-bottom: 3rem;
     }
-    #tabs h3 {
-        margin-top: 3rem;
+    #tabs h5 {
+        margin: 2rem 0 1rem 0;
     }
     hr {
-        margin-top: 0
+        margin-top: 0;
+        margin-bottom: 1.5rem;
     }
     ol {
         list-style: none;
@@ -58,13 +59,22 @@
 <title>Tab Archiver</title>
 <main id="main">
     <h1>Your <em>own</em> guitar tab archive</h1>
-    <div id="export_buttons">
-        <a id="download" href="#">Download all tabs</a>
-        <a id="google_drive" href="#">Sync to Google Drive</a>
+    <div id="loading">
+        <p>Loading...</p>
     </div>
-    <ol id="tabs"></ol>
-    <h2 id="tab_heading"></h2>
-    <pre id="pre"></pre>    
+    <div id="error" hidden>
+        <p>No guitar tabs archived yet.</p>
+        <p>Try browsing <a href="https://www.ultimate-guitar.com/" target="_blank" rel="noopener noreferrer">ultimate-guitar.com</a> and opening some guitar tabs, then check back here.</p>
+    </div>
+    <div id="loaded" hidden>
+        <div id="export_buttons">
+            <a id="download" href="#">Download all tabs</a>
+            <a id="google_drive" href="#">Sync to Google Drive</a>
+        </div>
+        <ol id="tabs"></ol>
+        <h2 id="tab_heading"></h2>
+        <pre id="pre"></pre>    
+    </div>
 </main>
 <script src="./options.js"></script>
 <script src="./jszip.min.js"></script>
