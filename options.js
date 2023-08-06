@@ -34,11 +34,15 @@ chrome.storage.local.get()
             li.onclick = event => {
                 if (event.target.tagName === "BUTTON") return
 
+                const tabContainerDiv = document.getElementById("tab")
+                tabContainerDiv.hidden = ""
+
                 const tab_heading = document.getElementById("tab_heading")
                 tab_heading.innerHTML = `<a href="#${artistName}">${artistName}</a> - <span>${songName}</span>`
 
                 const pre = document.getElementById("pre")
                 pre.textContent = tab
+
                 setTimeout(() => tab_heading.scrollIntoView({behavior:"smooth"}), 150)
                 document.title = name
             }
