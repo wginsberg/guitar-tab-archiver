@@ -22,7 +22,8 @@ waitForElement('pre')
     .then(async () => {
         const tab = document.getElementsByTagName('pre')[0].textContent
 
-        const [_, title, artist] = document.title.match((/(.*) by (.*) @/))
+        const artist = document.getElementsByTagName("h1")[0].nextSibling.nextSibling.textContent
+        const [_, title] = document.title.match((/(.*) by .*/))
         const key = `${artist} - ${title}`
         
         const recents = await chrome.storage.local.get("meta.recent")
