@@ -20,6 +20,7 @@ chrome.storage.local.get()
                 currentArtistName = artistName
                 const h3 = document.createElement("h5")
                 h3.textContent = artistName
+                h3.id = artistName
                 const hr = document.createElement("hr")
                 ul.append(h3)
                 ul.append(hr)
@@ -34,7 +35,7 @@ chrome.storage.local.get()
                 if (event.target.tagName === "BUTTON") return
 
                 const tab_heading = document.getElementById("tab_heading")
-                tab_heading.innerHTML = `<span>${artistName}</span> - <span>${songName}</span>`
+                tab_heading.innerHTML = `<a href="#${artistName}">${artistName}</a> - <span>${songName}</span>`
 
                 const pre = document.getElementById("pre")
                 pre.textContent = tab
