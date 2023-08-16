@@ -35,8 +35,6 @@ waitForElement('pre')
                 : [...recents, key].slice(-3)
             : [key]
 
-        // TODO consider using sync
-        // https://developer.chrome.com/docs/extensions/reference/storage/#property-local
         chrome.storage.local.set({
             [key]: tab,
             "meta.recent": newRecents

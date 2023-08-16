@@ -2,7 +2,9 @@ const ul = document.getElementById("tabs")
 
 chrome.storage.local.get()
     .then(storage => {
-        const tabNames = Object.keys(storage).sort()
+        const tabNames = Object.keys(storage)
+            .filter(name => !name.startsWith("meta."))
+            .sort()
 
         if (tabNames.length === 0) {
             document.getElementById("loading").hidden = "hidden"
@@ -12,7 +14,6 @@ chrome.storage.local.get()
 
         let currentArtistName
         for(const name of tabNames) {
-            if (name.startsWith("meta.")) continue
 
             // Add artist name heading
             const [artistName, songName] = name.split(" - ")

@@ -1,25 +1,23 @@
 {
   "manifest_version": 3,
   "name": "Tab Archiver",
-  "version": "1.0.1",
-  "description": "Archives guitar tabs on ultimate-guitar.com",
+  "version": "0.1.0",
+  "description": "Archives guitar chords and tabs from ultimate-guitar.com",
+  "icons": {
+    "128": "icon128.png"
+  },
   "content_scripts": [
     {
       "matches": ["*://*.ultimate-guitar.com/*"],
-      "js": ["index.js"]
+      "js": ["ug.js"]
     }
   ],
-  "permissions": ["storage", "identity"],
+  "permissions": ["storage"],
   "action": {
     "default_popup": "popup.html"
   },
   "options_ui": {
     "page": "options.html",
     "open_in_tab": true
-  },
-  "key": "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAggUKHjSlWXiADkOcCDK+ERCdHhNvF27hhHH/g5OuT3SvUQoYtyh2ZvA9Q6KFevnqvjIfAv1VlhkvHqxWV4LzykJMDWwrvVu2GT4ktrOIYrIFTzFuhdOtgVuZfc9DAdymN7ioHTMG6aFNnGiUQj9DhwGucD4HLCpjsgWdd1OHIyvi4MkATLa/+kMe2WMLuzJ9FfIlx5seG2XQBGxCrAJOf9DFT+8cy7ey0xpA5s7Ba5liu2Qs3+PM3FdwVsUgrxuIJnXgmGmsVx+eGhsD2IFKswLAWDdecZkCEIU1wLMKkaCQNjXJk++DV9r3N8EnvDH9lu+1krxJetXJOWWZDLdOjwIDAQAB",
-  "oauth2": {
-    "client_id": "993606245930-3fgtksjef3n23nc1oofllueavd6nq8eb.apps.googleusercontent.com",
-    "scopes":["https://www.googleapis.com/auth/drive.file"]
   }
 }
