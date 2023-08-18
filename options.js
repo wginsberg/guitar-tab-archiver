@@ -39,7 +39,22 @@ chrome.storage.local.get()
                 tabContainerDiv.hidden = ""
 
                 const tab_heading = document.getElementById("tab_heading")
-                tab_heading.innerHTML = `<a href="#${artistName}">${artistName}</a> - <span>${songName}</span>`
+                tab_heading.replaceChildren()
+                {
+                    const a = document.createElement("a")
+                    a.href= `#${artistName}`
+                    a.text = artistName
+                    tab_heading.appendChild(a)
+                }
+                {
+                    const text = document.createTextNode(" - ")
+                    tab_heading.appendChild(text)
+                }
+                {
+                    const span = document.createElement("span")
+                    span.innerText = songName
+                    tab_heading.appendChild(span)
+                }
 
                 const pre = document.getElementById("pre")
                 pre.textContent = tab
@@ -54,7 +69,7 @@ chrome.storage.local.get()
             deleteButton.title = deleteButtonLabel
             deleteButton.ariaLabel = deleteButtonLabel
             deleteButton.classList.add("delete")
-            deleteButton.innerHTML = "&#10060;"
+            deleteButton.innerText = "❌"
             deleteButton.onclick = () => {
                 const confirmation = window.confirm(`Are you sure you want to delete ${name}?`)
                 if (!confirmation) return
