@@ -1,5 +1,5 @@
 {
-  "manifest_version": 3,
+  "manifest_version": 2,
   "name": "Tab Archiver",
   "version": "0.1.0",
   "description": "Archives guitar chords and tabs from ultimate-guitar.com",
@@ -16,12 +16,12 @@
     }
   ],
   "permissions": ["storage"],
-  "action": {
-    "default_popup": "popup.html"
-  },
-  "options_ui": {
-    "page": "options.html",
-    "open_in_tab": true
+  "browser_action": {
+    "default_popup": "popup.html",
+    "options_ui": {
+      "page": "options.html",
+      "open_in_tab": true
+    }
   },
   "browser_specific_settings": {
     "gecko": {
