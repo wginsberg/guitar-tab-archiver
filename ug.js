@@ -19,24 +19,12 @@ function waitForElement(selector) {
 }
 
 waitForElement('pre')
-    .then(async () => {
-        const tab = document.getElementsByTagName('pre')[0].textContent
+    .then(() => {
+        const tabContent = document.getElementsByTagName('pre')[0].textContent
 
         const artist = document.getElementsByTagName("h1")[0].nextSibling.nextSibling.textContent
         const [_, title] = document.title.match((/(.*) by .*/))
-        const key = `${artist} - ${title}`
-        
-        const recents = await chrome.storage.local.get("meta.recent")
-            .then(storage => storage["meta.recent"])
+        const tabName = `${artist} - ${title}`
 
-        const newRecents = recents
-            ? recents.includes(key)
-                ? recents
-                : [...recents, key].slice(-3)
-            : [key]
-
-        chrome.storage.local.set({
-            [key]: tab,
-            "meta.recent": newRecents
-        })
+        browser.runtime.sendMessage({ type: "ADD", tabName, tabContent })
     })
