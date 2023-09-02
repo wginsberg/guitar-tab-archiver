@@ -1,3 +1,5 @@
+import "./browser-polyfill.min.js"
+
 const DB_NAME = "ArchiveOfChordsAndTabs"
 const DB_STORE_TABS = "tabs"
 const DB_STORE_META = "meta"
