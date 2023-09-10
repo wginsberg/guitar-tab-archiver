@@ -132,3 +132,7 @@ async function notify(message) {
         }
     }
 }
+
+export {
+    addNewTab
+}

@@ -4,22 +4,28 @@ manifest-chromium:
 manifest-firefox:
 	cp manifest_firefox.json manifest.json
 
-run-chromium: manifest-chromium
+background-prod:
+	cp background.prod.js background.js
+
+background-dev:
+	cp background.dev.js background.js
+
+run-chromium: background-dev manifest-chromium
 	web-ext run --target=chromium
 	make clean
 
-run-firefox: manifest-firefox
+run-firefox: background-dev manifest-firefox
 	web-ext run
 	make clean
 
 bundle-%:
-	zip -r build_$* . -x ".git*" "build/*" .DS_Store build_*.zip "build/*" *.map "screenshots/*" TODO "manifest_*.json" Makefile
+	zip -r build_$* . -x ".git*" "build*" .DS_Store "*.map" "screenshots/*" TODO "manifest_*.json" Makefile background.dev.js background.prod.js
 
 build-firefox: manifest-firefox bundle-firefox
 
 build-chrome: manifest-chromium bundle-chrome
 
-build: build-firefox build-chrome
+build: background-prod build-firefox build-chrome
 	make clean
 
 lint: manifest-firefox
@@ -27,6 +33,6 @@ lint: manifest-firefox
 	make clean
 
 clean:
-	rm -f manifest.json
+	rm -f manifest.json background.js
 
 .DEFAULT_GOAL := clean
