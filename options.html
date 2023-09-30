@@ -1,66 +1,69 @@
-<meta charset="utf-8">
-<link rel="stylesheet" href="./normalize.css">
-<link rel="stylesheet" href="./skeleton.css">
-<style>
-    html{scroll-behavior:smooth}
-    main {
-        margin: auto;
-        max-width: 680px;
-        padding: 0 12px;
-    }
-    h1 {
-        padding-top: 2rem;
-    }
-    #tabs h5 {
-        margin: 2rem 0 1rem 0;
-    }
-    hr {
-        margin-top: 0;
-        margin-bottom: 1.5rem;
-    }
-    ol {
-        list-style: none;
-    }
-    li {
-        display: flex;
-        justify-content: space-between;
-        cursor: pointer;
-        align-items: center;
-        border: 2px solid lightgray;
-        border-radius: 8px;
-        padding: 0 0 0 1rem;
-    }
-    li:hover {
-        box-shadow: 4px 4px 6px 1px lightgray;
-    }
-    li:hover button.delete {
-        visibility: visible;
-    }
-    li a {
-        padding: 1rem 0;
-    }
-    button.delete {
-        visibility: hidden;
-        padding: 0 1.5rem;
-        border-top: none;
-        border-right: none;
-        border-bottom: none;
-        border-radius: 0;
-    }
-    li > * {
-        margin-bottom: 0;
-    }
-    #tab_heading {
-        padding-top: 2rem;
-    }
-    #tab_heading span {
-        white-space: nowrap;
-    }
-    #tab pre {
-        overflow: visible;
-    }
-</style>
-<title>Guitar Tab Archiver</title>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="./normalize.css">
+    <link rel="stylesheet" href="./skeleton.css">
+    <style>
+        html{scroll-behavior:smooth}
+        main {
+            margin: auto;
+            max-width: 680px;
+            padding: 0 12px;
+        }
+        h1 {
+            padding-top: 2rem;
+        }
+        #tabs h5 {
+            margin: 2rem 0 1rem 0;
+        }
+        hr {
+            margin-top: 0;
+            margin-bottom: 1.5rem;
+        }
+        ol {
+            list-style: none;
+        }
+        li {
+            display: flex;
+            justify-content: space-between;
+            cursor: pointer;
+            align-items: center;
+            border: 2px solid lightgray;
+            border-radius: 8px;
+            padding: 0 0 0 1rem;
+        }
+        li:hover {
+            box-shadow: 4px 4px 6px 1px lightgray;
+        }
+        li:hover button.delete {
+            visibility: visible;
+        }
+        li a {
+            padding: 1rem 0;
+        }
+        button.delete {
+            visibility: hidden;
+            padding: 0 1.5rem;
+            border-top: none;
+            border-right: none;
+            border-bottom: none;
+            border-radius: 0;
+        }
+        li > * {
+            margin-bottom: 0;
+        }
+        #tab_heading {
+            padding-top: 2rem;
+        }
+        #tab_heading span {
+            white-space: nowrap;
+        }
+        #tab pre {
+            overflow: visible;
+        }
+    </style>
+    <title>Guitar Tab Archiver</title>
+</head>
 <main id="main">
     <h1>Archive of Chords and Tabs</h1>
     <div id="loading">

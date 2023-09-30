@@ -22,7 +22,10 @@ waitForElement('pre')
     .then(() => {
         const tabContent = document.getElementsByTagName('pre')[0].textContent
 
-        const artist = document.getElementsByTagName("h1")[0].nextSibling.nextSibling.textContent
+        const artistElement = document.getElementsByTagName("h1")[0].nextSibling.nextSibling || // desktop
+            document.getElementsByTagName('h2')[0].childNodes[1]                                // mobile
+
+        const artist = artistElement.textContent
         const [_, title] = document.title.match((/(.*) by .*/))
         const tabName = `${artist} - ${title}`
 
