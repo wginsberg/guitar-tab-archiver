@@ -18,6 +18,11 @@ run-firefox: background-dev manifest-firefox
 	web-ext run
 	make clean
 
+run-android-firefox: background-dev manifest-firefox
+	DEVICE=$$(adb devices | tail -n2 | head -n1 | cut -f1); \
+	web-ext run -t firefox-android --firefox-apk=org.mozilla.firefox_beta --adb-device=$$DEVICE
+	make clean
+
 bundle-%:
 	zip -r build_$* . -x ".git*" "build*" .DS_Store "*.map" "screenshots/*" TODO "manifest_*.json" Makefile background.dev.js background.prod.js
 
