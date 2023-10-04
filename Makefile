@@ -19,8 +19,9 @@ run-firefox: background-dev manifest-firefox
 	make clean
 
 run-android-firefox: background-dev manifest-firefox
-	DEVICE=$$(adb devices | tail -n2 | head -n1 | cut -f1); \
-	web-ext run -t firefox-android --firefox-apk=org.mozilla.firefox_beta --adb-device=$$DEVICE
+	DEVICE=$(shell adb devices | tail -n+2 | head -n1 | cut -f1); \
+	[ -n "$$DEVICE" ] && \
+	web-ext run -t firefox-android --firefox-apk=org.mozilla.firefox_beta --adb-device="$$DEVICE"
 	make clean
 
 bundle-%:
