@@ -10,4 +10,6 @@ const tabContent = `
 
 browser.runtime.onInstalled.addListener(() => {
     addNewTab(tabName, tabContent)
+    addNewTab(tabName+"2", tabContent)
+
 });

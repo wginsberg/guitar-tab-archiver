@@ -114,6 +114,15 @@ async function deleteTab(tabName) {
     return deleteOneFromObjectStore(transaction.objectStore(DB_STORE_TABS), tabName)
 }
 
+async function deleteAllTabs() {
+    const db = await getIndexedDB()
+    const transaction = db.transaction([DB_STORE_TABS, DB_STORE_META], "readwrite")
+
+    transaction.objectStore(DB_STORE_META).put({ key: DB_KEY_RECENTS, value: [] })
+
+    return transaction.objectStore(DB_STORE_TABS).clear()
+}
+
 async function notify(message) {
     switch (message.type) {
         case "ADD": addNewTab(message.tabName, message.tabContent)
@@ -129,6 +138,9 @@ async function notify(message) {
         }
         case "DELETE_ONE": {
             return deleteTab(message.tabName)
+        }
+        case "DELETE_ALL": {
+            return deleteAllTabs()
         }
     }
 }

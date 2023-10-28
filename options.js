@@ -25,8 +25,6 @@ browser.runtime.sendMessage({ type: "GET_ALL"})
                 ul.append(hr)
             }
 
-            // const tab = storage[name]
-
             const li = document.createElement("li")
             const button = document.createElement("a")
             button.textContent = songName            

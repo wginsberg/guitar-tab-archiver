@@ -1,0 +1,27 @@
+<head>
+    <link rel="stylesheet" href="./normalize.css">
+    <link rel="stylesheet" href="./skeleton.css">
+    <link rel="stylesheet" href="./index.css">
+</head>
+<main>
+    <h1>Advanced Settings</h1>
+    <a href="options.html" target="_blank">View all tabs</a>
+    <label>
+        <h2>Export tabs</h2>
+        <a id="download"></a>
+    </label>
+    <label>
+        <h2>Import tabs</h2>
+        <input type="file" accept=".zip" id="upload" name="file" />
+    </label>
+    <label>
+        <h2>Clear data</h2>
+        <button id="clear">Delete all tabs</button>
+    </label>    
+</main>
+
+<script type="application/javascript" src="browser-polyfill.min.js"></script>
+<script type="application/javascript" src="jszip.min.js"></script>
+<script src="./advanced_settings/export.js"></script>
+<script src="./advanced_settings/import.js"></script>
+<script src="./advanced_settings/clear.js"></script>
