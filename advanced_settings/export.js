@@ -24,6 +24,6 @@ browser.runtime.sendMessage({ type: "GET_ALL"})
 
         const link = document.getElementById("download");
         link.href = url;
-        link.download = "tabs.zip";
+        link.download = `tabs.zip`;
         link.textContent = "Download all tabs"
 })

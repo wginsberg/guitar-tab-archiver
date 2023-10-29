@@ -10,23 +10,31 @@
         li {
             display: flex;
         }
+        footer {
+            display: flex;
+            flex-direction: row-reverse;
+            justify-content: space-between;
+        }
     </style>
 </head>
 <main>
     <div id="error" hidden>
         <p>No guitar tabs archived yet.</p>
         <p>Try browsing <a href="https://www.ultimate-guitar.com/" target="_blank" rel="noopener noreferrer">ultimate-guitar.com</a> and opening some guitar tabs, then check back here.</p>
-        <a href="advanced_settings.html" target="_blank">Advanced Settings</a>
+        <footer>
+            <a href="advanced_settings.html" target="_blank">Advanced Settings</a>
+        </footer>
     </div>
     <div id="loaded" hidden>
         <p>Recent tabs archived:</p>
         <ol id="tabs"></ol>
-        <a href="options.html" target="_blank">View all tabs</a>
-        <a href="advanced_settings.html" target="_blank">Advanced Settings</a>
+        <footer>
+            <a href="advanced_settings.html" target="_blank">Advanced Settings</a>
+            <a href="options.html" target="_blank">View all tabs</a>
+        </footer>
     </div>    
 </main>
 
 <script type="application/javascript" src="browser-polyfill.min.js"></script>
 <script type="application/javascript" src="jszip.min.js"></script>
 <script src="./popup.js"></script>
-<script src="./import.js"></script>
