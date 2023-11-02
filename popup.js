@@ -9,8 +9,15 @@ browser.runtime.sendMessage({ type: "GET_RECENTS"})
         }
 
         for(const name of recents.reverse()) {
+            const [artist, song] = name.split(" - ")
             const li = document.createElement("li")
-            li.textContent = name
+
+            li.innerHTML = `
+                <span>
+                    <strong>${artist}</strong> - <a href="options.html?name=${encodeURIComponent(name)}" target="_blank">${song}</a>
+                </span>
+            `
+
             ul.appendChild(li)
         }
 

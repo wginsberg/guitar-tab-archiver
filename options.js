@@ -1,5 +1,19 @@
 const ul = document.getElementById("tabs")
 
+/*
+* Handle deeplinks from popup
+*/
+document.addEventListener("DOMContentLoaded", async () => {
+    const searchParams = new URLSearchParams(document.location.search)
+    const name = searchParams.get("name")
+    if (!name) return
+
+    await openTab(name)
+})
+
+/*
+* Handle click events
+*/
 browser.runtime.sendMessage({ type: "GET_ALL"})
     .then((result) => {
         const tabNames = result.sort()
@@ -30,34 +44,7 @@ browser.runtime.sendMessage({ type: "GET_ALL"})
             button.textContent = songName            
             li.onclick = async event => {
                 if (event.target.tagName === "BUTTON") return
-
-                const tabContent = await browser.runtime.sendMessage({ type: "GET_ONE", tabName: name })
-                const tabContainerDiv = document.getElementById("tab")
-                tabContainerDiv.hidden = ""
-
-                const tab_heading = document.getElementById("tab_heading")
-                tab_heading.replaceChildren()
-                {
-                    const a = document.createElement("a")
-                    a.href= `#${artistName}`
-                    a.text = artistName
-                    tab_heading.appendChild(a)
-                }
-                {
-                    const text = document.createTextNode(" - ")
-                    tab_heading.appendChild(text)
-                }
-                {
-                    const span = document.createElement("span")
-                    span.innerText = songName
-                    tab_heading.appendChild(span)
-                }
-
-                const pre = document.getElementById("pre")
-                pre.textContent = tabContent
-
-                setTimeout(() => tab_heading.scrollIntoView({behavior:"smooth"}), 150)
-                document.title = name
+                openTab(name)
             }
             li.appendChild(button)
 
@@ -81,3 +68,35 @@ browser.runtime.sendMessage({ type: "GET_ALL"})
         document.getElementById("loading").hidden = "hidden"
         document.getElementById("loaded").hidden = ""
     })
+
+async function openTab(tabName) {
+    const tabContent = await browser.runtime.sendMessage({ type: "GET_ONE", tabName })
+    const tabContainerDiv = document.getElementById("tab")
+    tabContainerDiv.hidden = ""
+
+    const tab_heading = document.getElementById("tab_heading")
+    tab_heading.replaceChildren()
+
+    const [artistName, songName] = tabName.split(" - ")
+    {
+        const a = document.createElement("a")
+        a.href= `#${artistName}`
+        a.text = artistName
+        tab_heading.appendChild(a)
+    }
+    {
+        const text = document.createTextNode(" - ")
+        tab_heading.appendChild(text)
+    }
+    {
+        const span = document.createElement("span")
+        span.innerText = songName
+        tab_heading.appendChild(span)
+    }
+
+    const pre = document.getElementById("pre")
+    pre.textContent = tabContent
+
+    setTimeout(() => tab_heading.scrollIntoView({behavior:"smooth"}), 150)
+    document.title = tabName
+}
