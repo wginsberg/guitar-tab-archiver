@@ -1,7 +1,7 @@
 {
     "manifest_version": 2,
     "name": "Tab Archiver",
-    "version": "0.2.1",
+    "version": "0.2.2",
     "description": "Archives guitar chords and tabs from ultimate-guitar.com",
     "icons": {
       "16": "./icons/icon16.png",
