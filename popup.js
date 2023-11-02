@@ -12,11 +12,20 @@ browser.runtime.sendMessage({ type: "GET_RECENTS"})
             const [artist, song] = name.split(" - ")
             const li = document.createElement("li")
 
-            li.innerHTML = `
-                <span>
-                    <strong>${artist}</strong> - <a href="options.html?name=${encodeURIComponent(name)}" target="_blank">${song}</a>
-                </span>
-            `
+            const strong = document.createElement("strong")
+            strong.textContent = artist
+
+            const a = document.createElement("a")
+            a.href = `options.html?name=${encodeURIComponent(name)}`
+            a.target="_blank"
+            a.textContent = song
+
+            const span = document.createElement("span")
+            span.append(strong)
+            span.append(" - ")
+            span.append(a)
+
+            li.append(span)
 
             ul.appendChild(li)
         }
