@@ -3,7 +3,10 @@ upload.textContent = "Upload some tabs"
 
 upload.onchange = async ({ target: { files: [file] } }) => {
     processZip(file)
-        .then(() => alert("Tabs imported successfully."))
+        .then((files) => {
+            alert(`Successfully imported ${files.length} tabs.`)
+            window.location.pathname = "options.html"
+        })
         .catch(error => alert(error))
 }
 
