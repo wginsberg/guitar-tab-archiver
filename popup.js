@@ -13,6 +13,7 @@ browser.runtime.sendMessage({ type: "GET_RECENTS"})
             const li = document.createElement("li")
 
             const strong = document.createElement("strong")
+            strong.className = "artist"
             strong.textContent = artist
 
             const a = document.createElement("a")
@@ -20,12 +21,8 @@ browser.runtime.sendMessage({ type: "GET_RECENTS"})
             a.target="_blank"
             a.textContent = song
 
-            const span = document.createElement("span")
-            span.append(strong)
-            span.append(" - ")
-            span.append(a)
-
-            li.append(span)
+            li.append(strong)
+            li.append(a)
 
             ul.appendChild(li)
         }

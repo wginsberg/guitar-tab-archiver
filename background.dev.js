@@ -11,5 +11,6 @@ const tabContent = `
 browser.runtime.onInstalled.addListener(() => {
     addNewTab(tabName, tabContent)
     addNewTab(tabName+"2", tabContent)
+    addNewTab("King Gizzard and the Lizard Wizard - ROBOT STOP", tabContent)
 
 });

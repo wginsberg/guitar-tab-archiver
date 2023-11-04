@@ -1,4 +1,5 @@
 <head>
+    <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <style>
         html {
@@ -8,33 +9,49 @@
             padding-left: 0;
         }
         li {
+            margin-bottom: 8px;
             display: flex;
-            margin-bottom: 4px;
+            flex-direction: column;
         }
-        footer {
+        header {
+            display: grid;
+            grid-template-columns: auto auto;
+        }
+        header :nth-child(2) {
+            justify-self: end;
+        }
+        header > span {
             display: flex;
-            flex-direction: row-reverse;
-            justify-content: space-between;
+            align-items: center;
+        }
+        header .icon {
+            font-size: large;
+            padding-right: 4px;
         }
     </style>
 </head>
-<main>
+<body>
+    <h1>Guitar Tab Archiver</h1>
     <div id="error" hidden>
-        <p>No guitar tabs archived yet.</p>
-        <p>Try browsing <a href="https://www.ultimate-guitar.com/" target="_blank" rel="noopener noreferrer">ultimate-guitar.com</a> and opening some guitar tabs, then check back here.</p>
-        <footer>
-            <a href="advanced_settings.html" target="_blank">Advanced Settings</a>
-        </footer>
+        <header>
+            <span><span class="icon">⚙️</span> <a href="advanced_settings.html" target="_blank">Advanced Settings</a></span>
+        </header>
+        <hr>
+        <main>
+            <p>No guitar tabs archived yet.</p>
+            <p>Try browsing <a href="https://www.ultimate-guitar.com/" target="_blank" rel="noopener noreferrer">ultimate-guitar.com</a> and opening some guitar tabs, then check back here.</p>
+        </main>
     </div>
     <div id="loaded" hidden>
-        <p>Recent tabs archived:</p>
+        <header>
+            <span><span class="icon">📖</span> <a href="options.html" target="_blank">View all tabs</a></span>
+            <span><span class="icon">⚙️</span> <a href="advanced_settings.html" target="_blank">Advanced Settings</a></span>
+        </header>
+        <hr>
+        <h2>Recent tabs archived:</h2>
         <ol id="tabs"></ol>
-        <footer>
-            <a href="advanced_settings.html" target="_blank">Advanced Settings</a>
-            <a href="options.html" target="_blank">View all tabs</a>
-        </footer>
     </div>    
-</main>
+</body>
 
 <script type="application/javascript" src="browser-polyfill.min.js"></script>
 <script type="application/javascript" src="jszip.min.js"></script>
