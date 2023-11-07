@@ -1,10 +1,15 @@
 import "./browser-polyfill.min.js"
+import seed from "./seed.js"
 
 const DB_NAME = "ArchiveOfChordsAndTabs"
 const DB_STORE_TABS = "tabs"
 const DB_STORE_META = "meta"
 const DB_KEY_RECENTS = "recents"
 
+// Process seed events
+seed.events.forEach(notify)
+
+// Watch for incoming new events
 browser.runtime.onMessage.addListener(notify);
 
 function getIndexedDB(name = DB_NAME) {
@@ -143,8 +148,4 @@ async function notify(message) {
             return deleteAllTabs()
         }
     }
-}
-
-export {
-    addNewTab
 }

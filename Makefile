@@ -4,21 +4,21 @@ manifest-chromium:
 manifest-firefox:
 	cp manifest_firefox.json manifest.json
 
-background-prod:
-	cp background.prod.js background.js
+seed-prod:
+	cp seed.prod.js seed.js
 
-background-dev:
-	cp background.dev.js background.js
+seed-dev:
+	cp seed.dev.js seed.js
 
-run-chromium: background-dev manifest-chromium
+run-chromium: seed-dev manifest-chromium
 	web-ext run --target=chromium
 	make clean
 
-run-firefox: background-dev manifest-firefox
+run-firefox: seed-dev manifest-firefox
 	web-ext run
 	make clean
 
-run-android-firefox: background-dev manifest-firefox
+run-android-firefox: seed-dev manifest-firefox
 	DEVICE=$(shell adb devices | tail -n+2 | head -n1 | cut -f1); \
 	[ -n "$$DEVICE" ] && \
 	web-ext run -t firefox-android --firefox-apk=org.mozilla.firefox_beta --adb-device="$$DEVICE"
@@ -31,7 +31,7 @@ build-firefox: manifest-firefox bundle-firefox
 
 build-chrome: manifest-chromium bundle-chrome
 
-build: background-prod build-firefox build-chrome
+build: seed-prod build-firefox build-chrome
 	make clean
 
 lint: manifest-firefox
@@ -39,6 +39,6 @@ lint: manifest-firefox
 	make clean
 
 clean:
-	rm -f manifest.json background.js
+	rm -f manifest.json seed.js
 
 .DEFAULT_GOAL := clean
