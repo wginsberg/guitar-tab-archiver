@@ -1,6 +1,9 @@
+:root {
+    --max-width: 680px;
+}
+
 main {
     margin: auto;
-    max-width: 680px;
     padding: 0 12px;
 }
 h1 {

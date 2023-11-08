@@ -6,6 +6,10 @@
     <link rel="stylesheet" href="./index.css">
     <style>
         html{scroll-behavior:smooth}
+        .center {
+            max-width: var(--max-width);
+            margin: auto;
+        }
         #tabs h5 {
             margin: 2rem 0 1rem 0;
         }
@@ -54,12 +58,27 @@
         #tab pre {
             overflow: visible;
         }
+        #tab pre.split {
+            max-width: none;
+            margin: auto;
+            max-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            flex-wrap: wrap;
+            column-gap: 4rem;
+        }
+        .tab-section {
+            margin-bottom: 2rem;
+        }
+        #tab pre.split .tab-section {
+            min-width: 33.3vw;
+        }
     </style>
     <title>Guitar Tab Archiver</title>
 </head>
 <main id="main">
-    <h1>Guitar Tab Archiver</h1>
-    <p><a href="advanced_settings.html">Advanced Settings</a></p>
+    <h1 class="center">Guitar Tab Archiver</h1>
+    <p class="center"><a href="advanced_settings.html">Advanced Settings</a></p>
     <div id="loading">
         <p>Loading...</p>
     </div>
@@ -68,11 +87,11 @@
         <p>Try browsing <a href="https://www.ultimate-guitar.com/" target="_blank" rel="noopener noreferrer">ultimate-guitar.com</a> and opening some guitar tabs, then check back here.</p>
     </div>
     <div id="loaded" hidden>
-        <ol id="tabs"></ol>
+        <ol id="tabs" class="center"></ol>
         <div id="tab" hidden>
-            <h3 id="tab_heading"></h3>
-            <pre id="pre"></pre>
-            <p><a href="#tab_heading">Back to top</a></p>
+            <h3 id="tab_heading" class="center"></h3>
+            <pre id="pre" class="center"></pre>
+            <p class="center"><a href="#tab_heading">Back to top</a></p>
         </div>
     </div>
 </main>

@@ -95,7 +95,32 @@ async function openTab(tabName) {
     }
 
     const pre = document.getElementById("pre")
-    pre.textContent = tabContent
+    pre.replaceChildren()
+
+    tabContent
+        .replaceAll(/\s*\n\s*\n/g, "\n\n")
+        .replaceAll(/\]\n\n/g, "]\n")
+        .split(/\n\n/)
+        .map(line => {
+            const div = document.createElement("div")
+            div.textContent = line
+            div.className = "tab-section"
+            pre.appendChild(div)
+        })
+
+    {
+        const button = document.createElement("button")
+        button.innerText = "Use 3 column layout"
+        button.onclick = () => {
+            const hasSplitLayout = pre.classList.toggle("split")
+            if (hasSplitLayout) {
+                pre.scrollIntoView()
+            } else {
+                tab_heading.scrollIntoView()
+            }
+        }
+        tab_heading.append(button)
+    }
 
     setTimeout(() => tab_heading.scrollIntoView({behavior:"smooth"}), 150)
     document.title = tabName
