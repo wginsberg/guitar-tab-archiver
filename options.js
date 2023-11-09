@@ -112,17 +112,17 @@ async function openTab(tabName) {
     }
 
     {
-        const button = document.createElement("button")
-        button.innerText = "Use 3 column layout"
+        const button = document.getElementById("split")
         button.onclick = () => {
-            const hasSplitLayout = pre.classList.toggle("split")
-            if (hasSplitLayout) {
-                pre.scrollIntoView()
-            } else {
-                tab_heading.scrollIntoView()
-            }
+            const hasSplit = pre.classList.toggle("split")
+            const message = hasSplit
+                ? "Single Column"
+                : "Multi Column"
+            button.textContent = message
+            pre.scrollLeft = 0
+            pre.scrollTop = 0
+            tab_heading.scrollIntoView()
         }
-        tab_heading.append(button)
     }
 
     setTimeout(() => tab_heading.scrollIntoView({behavior:"smooth"}), 150)
