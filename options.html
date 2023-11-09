@@ -59,9 +59,12 @@
             overflow: visible;
         }
         #tab pre.split {
-            max-width: none;
+            max-width: 100%;
+            overflow: scroll;
             margin: auto;
-            max-height: 100vh;
+            padding-top: 2rem;
+            max-height: calc(100vh - 2rem);
+            height: 100vh;
             display: flex;
             flex-direction: column;
             flex-wrap: wrap;
@@ -91,7 +94,6 @@
         <div id="tab" hidden>
             <h3 id="tab_heading" class="center"></h3>
             <pre id="pre" class="center"></pre>
-            <p class="center"><a href="#tab_heading">Back to top</a></p>
         </div>
     </div>
 </main>

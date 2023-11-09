@@ -96,17 +96,18 @@ async function openTab(tabName) {
 
     const pre = document.getElementById("pre")
     pre.replaceChildren()
-
-    tabContent
-        .replaceAll(/\s*\n\s*\n/g, "\n\n")
-        .replaceAll(/\]\n\n/g, "]\n")
-        .split(/\n\n/)
-        .map(line => {
+    
+    {
+        const sanitizedtabContent = sanitizeTabContent(tabContent)
+        const tabContentChunks = sanitizedtabContent.split(/\n\n/)
+    
+        for (const line of tabContentChunks) {
             const div = document.createElement("div")
             div.textContent = line
             div.className = "tab-section"
             pre.appendChild(div)
-        })
+        }    
+    }
 
     {
         const button = document.createElement("button")
@@ -124,4 +125,12 @@ async function openTab(tabName) {
 
     setTimeout(() => tab_heading.scrollIntoView({behavior:"smooth"}), 150)
     document.title = tabName
+}
+
+function sanitizeTabContent(tabContent=""){
+    return tabContent
+        .trim()
+        .replace(/X$/, "")
+        .replaceAll(/\s*\n\s*\n/g, "\n\n")
+        .replaceAll(/\]\n\n/g, "]\n")
 }
