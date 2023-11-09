@@ -1,3 +1,5 @@
 .DS_Store
 build*
 TODO
+seed.js
+manifest.json
