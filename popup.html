@@ -9,47 +9,60 @@
             padding-left: 0;
         }
         li {
-            margin-bottom: 8px;
+            margin-bottom: 12px;
             display: flex;
             flex-direction: column;
         }
-        header {
+        li a {
+            text-decoration: none;
+        }
+        li .artist {
+            color: initial;
+        }
+        li .song {
+            text-decoration: underline;
+        }
+        footer {
             display: grid;
             grid-template-columns: auto auto;
         }
-        header :nth-child(2) {
+        footer :nth-child(2) {
             justify-self: end;
         }
-        header > span {
+        footer > a {
             display: flex;
             align-items: center;
         }
-        header .icon {
+        footer .icon {
             font-size: large;
             padding-right: 4px;
+        }
+        footer a {
+            text-decoration: none;
+        }
+        footer span {
+            text-decoration: underline;
         }
     </style>
 </head>
 <body>
     <h1>Guitar Tab Archiver</h1>
     <div id="error" hidden>
-        <header>
-            <span><span class="icon">⚙️</span> <a href="advanced_settings.html" target="_blank">Advanced Settings</a></span>
-        </header>
-        <hr>
         <main>
             <p>No guitar tabs archived yet.</p>
             <p>Try browsing <a href="https://www.ultimate-guitar.com/" target="_blank" rel="noopener noreferrer">ultimate-guitar.com</a> and opening some guitar tabs, then check back here.</p>
         </main>
+        <hr>
+        <footer>
+            <a href="advanced_settings.html" target="_blank"><icon class="icon">⚙️</icon> <span>Settings</span></a>
+        </footer>
     </div>
     <div id="loaded" hidden>
-        <header>
-            <span><span class="icon">📖</span> <a href="options.html" target="_blank">View all tabs</a></span>
-            <span><span class="icon">⚙️</span> <a href="advanced_settings.html" target="_blank">Advanced Settings</a></span>
-        </header>
-        <hr>
-        <h2>Recent tabs archived:</h2>
         <ol id="tabs"></ol>
+        <footer>
+            <a href="options.html" target="_blank"><icon class="icon">📖</icon> <span>View all tabs</span></a>
+            <a href="advanced_settings.html" target="_blank"><icon class="icon">⚙️</icon> <span>Settings</span></a>
+        </footer>
     </div>    
 </body>
 
