@@ -96,6 +96,8 @@ async function openTab(tabName) {
 
     const pre = document.getElementById("pre")
     pre.replaceChildren()
+    pre.scrollLeft = 0
+    pre.scrollTop = 0
     
     {
         const sanitizedtabContent = sanitizeTabContent(tabContent)
