@@ -1,12 +1,13 @@
+import type { PlasmoMessaging } from "@plasmohq/messaging";
 
-type MessageType = "ADD" | "GET_RECENTS" | "GET_ONE" | "GET_ALL" | "DELETE_ONE" | "DELETE_ALL"
+export type GTAMessageType = "ADD" | "GET_RECENTS" | "GET_ONE" | "GET_ALL" | "DELETE_ONE" | "DELETE_ALL"
 
 interface MessageBase {
-  type: MessageType;
+    type: MessageType;
 }
 
 interface MessageAdd extends MessageBase {
-    type: "ADD"
+    type: "ADD",
     tabName: string;
     tabContent: string;
 }

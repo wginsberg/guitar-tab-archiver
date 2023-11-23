@@ -10,6 +10,7 @@
     "package": "plasmo package"
   },
   "dependencies": {
+    "@plasmohq/messaging": "^0.6.0",
     "classnames": "^2.3.2",
     "jszip": "^3.10.1",
     "plasmo": "0.84.0",

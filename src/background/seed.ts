@@ -1,5 +1,3 @@
-import type { GTAMessage } from "~types/messages"
-
 const chords = `
 C
 Old San Francisco, San Francisco B.C.
@@ -101,27 +99,27 @@ Old San Francisco, San Francisco B.C.
 X
 `
 
-export default {
-    "events": [
-        {
-            "type": "ADD",
-            "tabName": "Silver Jews - SAN FRANCISO B C CHORDS",
-            "tabContent": chords
-        },
-        {
-            "type": "ADD",
-            "tabName": "Test Artist - TEST CHORDS",
-            "tabContent": "chords"
-        },
-        {
-            "type": "ADD",
-            "tabName": "Test Artist - TEST CHORDS ver 2",
-            "tabContent": "chords v2"
-        },
-        {
-            "type": "ADD",
-            "tabName": "King Gizzard and the Lizard Wizard - ROBOT STOP",
-            "tabContent": "tabtabtabtab"
-        },
-    ] as GTAMessage[]
-}
+const songs = [
+    {
+        tabName: "Silver Jews - SAN FRANCISO B C CHORDS",
+        tabContent: chords
+    },
+    {
+        tabName: "Test Artist - TEST CHORDS",
+        tabContent: "chords"
+    },
+    {
+        tabName: "Test Artist - TEST CHORDS ver 2",
+        tabContent: "chords v2"
+    },
+    {
+        tabName: "King Gizzard and the Lizard Wizard - ROBOT STOP",
+        tabContent: "tabtabtabtab"
+    },
+]
+
+const songsToExport = process.env["NODE_ENV"] === "development"
+    ? songs
+    : []
+
+export default songsToExport
