@@ -1,6 +1,6 @@
 {
-  "name": "plasmo-gta",
-  "displayName": "Plasmo gta",
+  "name": "guitar-tab-archiver",
+  "displayName": "Guitar Tab Archiver",
   "version": "0.0.1",
   "description": "Archive tabs and chords",
   "author": "will",
@@ -10,6 +10,8 @@
     "package": "plasmo package"
   },
   "dependencies": {
+    "classnames": "^2.3.2",
+    "jszip": "^3.10.1",
     "plasmo": "0.84.0",
     "react": "18.2.0",
     "react-dom": "18.2.0"

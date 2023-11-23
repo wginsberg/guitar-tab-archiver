@@ -1,0 +1,62 @@
+#settings {
+    form.search {
+        display: grid;
+        grid-template-columns: 1fr auto;
+        column-gap: 1rem;
+    }
+
+    #tabs h5 {
+        margin: 2rem 0 1rem 0;
+    }
+    hr {
+        margin-top: 0;
+        margin-bottom: 1.5rem;
+    }
+    ol {
+        list-style: none;
+    }
+    .tab-item {
+        display: grid;
+        grid-template-columns: 1fr 50px;
+        column-gap: 10px;
+    }
+    .tab-item a {
+        text-decoration: none;
+    }
+    .tab-item button:hover {
+        box-shadow: 4px 4px 6px 1px lightgray;
+    }
+    .tab-item button.delete {
+        padding: 0;
+    }
+    li > * {
+        margin-bottom: 0;
+    }
+    #tab_heading {
+        padding-top: 2rem;
+    }
+    #tab_heading span {
+        white-space: nowrap;
+    }
+    #tab pre {
+        overflow: visible;
+    }
+    #tab pre.split {
+        max-width: 100%;
+        overflow: scroll;
+        margin: auto;
+        padding-top: 2rem;
+        max-height: calc(100vh - 2rem);
+        height: 100vh;
+        display: flex;
+        flex-direction: column;
+        flex-wrap: wrap;
+        column-gap: 4rem;
+    }
+    .tab-section {
+        margin-bottom: 2rem;
+    }
+    #tab pre.split .tab-section {
+        min-width: 33.3vw;
+    }
+}
