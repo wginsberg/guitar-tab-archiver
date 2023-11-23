@@ -1,5 +1,5 @@
 import type { PlasmoCSConfig } from "plasmo"
-import { sendGTAMessage } from "../messaging"
+import { sendGTAMessage } from "~messaging"
 
 export const config: PlasmoCSConfig = {
   matches: ["*://*.ultimate-guitar.com/*"]

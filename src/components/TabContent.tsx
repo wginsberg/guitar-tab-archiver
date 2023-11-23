@@ -1,7 +1,7 @@
 import React, { useState } from "react"
 import classnames from "classnames"
-import { type Tab } from "../hooks"
-import { sanitizeTabContent, parseTabContent } from "../utils"
+import type { Tab } from "~types/chords"
+import { sanitizeTabContent, parseTabContent } from "~utils"
 
 interface Props {
     tab: Tab

@@ -1,15 +1,15 @@
 import React, { useState, useRef, useEffect, type FormEventHandler } from "react"
 
-import { sendGTAMessage } from "../messaging"
-import { useTabGroups, useTab } from "../hooks"
-import TabContent from "../components/TabContent"
-import TabItem from "../components/TabItem"
-import SearchForm from "../components/SearchForm"
+import { sendGTAMessage } from "~messaging"
+import { useTabGroups, useTab } from "~hooks"
+import TabContent from "~components/TabContent"
+import TabItem from "~components/TabItem"
+import SearchForm from "~components/SearchForm"
 
-import "../styles/normalize.css"
-import "../styles/skeleton.css"
-import "../styles/index.css"
-import "../styles/settings.css"
+import "~styles/normalize.css"
+import "~styles/skeleton.css"
+import "~styles/index.css"
+import "~styles/settings.css"
 
 const search: FormEventHandler = (event) => {
   event.preventDefault()
@@ -58,7 +58,7 @@ export default function SettingsPage() {
         <p>No guitar tabs archived yet.</p>
         <SearchForm onSubmit={search} />
         <p>Try browsing <a href="https://www.ultimate-guitar.com/" target="_blank" rel="noopener noreferrer">ultimate-guitar.com</a> and opening some guitar tabs, then check back here.</p>
-        <a href="advanced.html">Advanced Settings</a>
+        <a href="/tabs/advanced.html">Advanced Settings</a>
       </div>
     </main>
   )
@@ -68,7 +68,7 @@ export default function SettingsPage() {
     <main id="settings">
       <h1 className="center">Guitar Tab Archiver</h1>
       <p className="center">
-        <a href="advanced.html">Advanced Settings</a>
+        <a href="/tabs/advanced.html">Advanced Settings</a>
       </p>
       <SearchForm onSubmit={search} />
       <ol className="center">

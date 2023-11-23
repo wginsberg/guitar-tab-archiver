@@ -1,4 +1,4 @@
-import { type GTAMessage } from "./messaging"
+import type { GTAMessage } from "~types/messages"
 
 const chords = `
 C

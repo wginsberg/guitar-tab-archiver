@@ -1,13 +1,14 @@
 import React from "react"
 import JSZip from "jszip"
 
-import { useDownloadURL } from "../hooks"
+import type { GTAMessageResult } from "~types/messages"
 
-import { type GTAMessageResult, sendGTAMessage } from "../messaging"
+import { sendGTAMessage } from "~messaging"
+import { useDownloadURL } from "~hooks"
 
-import "../styles/normalize.css"
-import "../styles/skeleton.css"
-import "../styles/index.css"
+import "~styles/normalize.css"
+import "~styles/skeleton.css"
+import "~styles/index.css"
 
 async function processZip(file: File) {
     const zip = await JSZip.loadAsync(file)
@@ -39,7 +40,7 @@ async function importTabs(event: React.ChangeEvent<HTMLInputElement>) {
     processZip(file)
         .then((results) => {
             alert(`Successfully imported ${results.length} tabs.`)
-            window.location.pathname = "options.html"
+            window.location.pathname = "/tabs/options.html"
         })
         .catch(error => alert(error))
 }
@@ -51,7 +52,7 @@ async function deleteAllTabs() {
     await sendGTAMessage({ type: "DELETE_ALL" })
 
     alert("Deleted all tabs")
-    window.location.pathname = "options.html"
+    window.location.pathname = "/tabs/options.html"
 }
 
 export default function AdvancedSettings() {

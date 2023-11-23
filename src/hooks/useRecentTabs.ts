@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react"
-import { sendGTAMessage } from "../messaging"
+import { sendGTAMessage } from "~messaging"
 
 interface Tab {
     artist: string;

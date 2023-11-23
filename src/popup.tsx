@@ -1,10 +1,10 @@
 import React from "react"
-import useRecentTabs from "./hooks/useRecentTabs"
+import useRecentTabs from "~hooks/useRecentTabs"
 
-import "./styles/normalize.css"
-import "./styles/skeleton.css"
-import "./styles/index.css"
-import "./styles/popup.css"
+import "~styles/normalize.css"
+import "~styles/skeleton.css"
+import "~styles/index.css"
+import "~styles/popup.css"
 
 const PopupPage = () => {
   const recentTabs = useRecentTabs()

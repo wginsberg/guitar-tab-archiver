@@ -1,5 +1,6 @@
-import { type GTAMessage, type GTAMessageResult, addGTAMessageListener } from "./messaging";
-import seed from "./seed"
+import type { GTAMessage, GTAMessageResult } from "~types/messages";
+import { addGTAMessageListener } from "~messaging";
+import seed from "~seed"
 
 const DB_NAME = "ArchiveOfChordsAndTabs"
 const DB_STORE_TABS = "tabs"
