@@ -12,18 +12,6 @@ import "~styles/skeleton.css"
 import "~styles/index.css"
 import "~styles/settings.css"
 
-const search: FormEventHandler = (event) => {
-  event.preventDefault()
-
-  const form = (event.target) as HTMLFormElement
-  const input = form.elements.namedItem("query") as HTMLInputElement
-  const query = input.value
-
-  const searchURL = `https://ultimate-guitar.com/search.php?search_type=title&value=${encodeURIComponent(query)}`
-
-  window.open(searchURL, "_blank")
-}
-
 export default function SettingsPage() {
   const [lastDeletion, setLastDeletion] = useState("")
   const tabGroups = useTabGroups(lastDeletion)
@@ -69,7 +57,7 @@ export default function SettingsPage() {
       <h1 className="center">Guitar Tab Archiver</h1>
       <div className="center">
         <p>No guitar tabs archived yet.</p>
-        <SearchForm onSubmit={search} />
+        <SearchForm />
         <p>Try browsing <a href="https://www.ultimate-guitar.com/" target="_blank" rel="noopener noreferrer">ultimate-guitar.com</a> and opening some guitar tabs, then check back here.</p>
         <a href="/tabs/advanced.html">Advanced Settings</a>
       </div>
@@ -83,7 +71,7 @@ export default function SettingsPage() {
       <p className="center">
         <a href="/tabs/advanced.html">Advanced Settings</a>
       </p>
-      <SearchForm onSubmit={search} />
+      <SearchForm />
       <ol className="center">
         {tabGroups.map(({ artist, songs }) => (
           <div key={artist}>

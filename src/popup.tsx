@@ -1,4 +1,5 @@
 import React from "react"
+import SearchForm from "~components/SearchForm"
 import useRecentTabs from "~hooks/useRecentTabs"
 import "~styles/popup.css"
 
@@ -41,6 +42,7 @@ const PopupPage = () => {
     <main>
       <h1>Guitar Tab Archiver</h1>
       <p>No guitar tabs archived yet.</p>
+      <SearchForm />
       <p>Try browsing <a href="https://www.ultimate-guitar.com/" target="_blank" rel="noopener noreferrer">ultimate-guitar.com</a> and opening some guitar tabs, then check back here.</p>
       <hr />
       <footer>

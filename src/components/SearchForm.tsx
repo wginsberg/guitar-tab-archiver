@@ -1,13 +1,10 @@
-import React, { type FormEventHandler } from "react"
+import React from "react"
 
-interface Props {
-    onSubmit: FormEventHandler
-}
-
-const SearchForm: React.FC<Props> = ({ onSubmit }) => {
+const SearchForm: React.FC = () => {
     return (
-        <form className="center search" onSubmit={onSubmit}>
-            <input type="text" placeholder="Search ultimate-guitar.com" name="query" />
+        <form className="center search" target="_blank" rel="noopener noreferrer" action="https://ultimate-guitar.com/search.php">
+            <input hidden readOnly name="search_type" value="title"></input>
+            <input type="text" placeholder="Search ultimate-guitar.com" name="value" />
             <button>Search</button>
         </form>
     )

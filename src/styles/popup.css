@@ -44,3 +44,8 @@ footer a {
 footer span {
     text-decoration: underline;
 }    
+form.search {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    column-gap: 1rem;
+}

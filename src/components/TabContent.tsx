@@ -35,11 +35,11 @@ const TabContent: React.FC<Props> = ({ tab }) => {
                         Toggle Column Layout
                     </button>
                     <div className="font-controls">
-                        <button aria-label="Increase font size" title="Increase font size" disabled={fontSizeDelta > 2} onClick={incrementFontSize}>
-                            <IconPlus />
-                        </button>
                         <button aria-label="Decrease font size" title="Decrease font size" disabled={fontSizeDelta < -2} onClick={decrementFontSize}>
                             <IconMinus />
+                        </button>
+                        <button aria-label="Increase font size" title="Increase font size" disabled={fontSizeDelta > 2} onClick={incrementFontSize}>
+                            <IconPlus />
                         </button>
                     </div>
                 </div>
