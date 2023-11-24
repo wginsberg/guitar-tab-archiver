@@ -6,7 +6,10 @@
   "author": "will",
   "scripts": {
     "dev": "plasmo dev",
-    "build": "plasmo build",
+    "build-clean": "rm -rf build/*.zip",
+    "build-chrome": "plasmo build && zip -r build/chrome.zip build/chrome-mv3-prod",
+    "build-firefox": "plasmo build --target=firefox-mv2 && zip -r build/firefox.zip build/firefox-mv2-prod",
+    "build": "pnpm run build-clean && pnpm run build-chrome && pnpm run build-firefox",
     "package": "plasmo package"
   },
   "dependencies": {
