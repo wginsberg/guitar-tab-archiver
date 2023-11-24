@@ -55,7 +55,9 @@ export default function SettingsPage() {
 
     const searchParams = new URLSearchParams()
     searchParams.append("name", name)
-    document.location.search = searchParams.toString()
+
+    const nextURL = `${location.pathname}?${searchParams.toString()}`
+    history.replaceState(null, null, nextURL)
 
     setActiveTab(name)
   }
