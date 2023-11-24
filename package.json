@@ -1,14 +1,14 @@
 {
   "name": "guitar-tab-archiver",
   "displayName": "Guitar Tab Archiver",
-  "version": "0.0.1",
+  "version": "0.4.0",
   "description": "Archive tabs and chords",
   "author": "will",
   "scripts": {
     "dev": "plasmo dev",
     "build-clean": "rm -rf build/*.zip",
-    "build-chrome": "plasmo build && zip -r build/chrome.zip build/chrome-mv3-prod",
-    "build-firefox": "plasmo build --target=firefox-mv2 && zip -r build/firefox.zip build/firefox-mv2-prod",
+    "build-chrome": "plasmo build && zip -r build/chrome-v$npm_package_version.zip build/chrome-mv3-prod",
+    "build-firefox": "plasmo build --target=firefox-mv2 && zip -r build/firefox-v$npm_package_version.zip build/firefox-mv2-prod",
     "build": "pnpm run build-clean && pnpm run build-chrome && pnpm run build-firefox",
     "package": "plasmo package"
   },
