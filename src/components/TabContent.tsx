@@ -10,6 +10,8 @@ interface Props {
     tab: Tab
 }
 
+const MAX_FONT_SIZE_DELTA = 5
+
 const TabContent: React.FC<Props> = ({ tab }) => {
     const [mulitColumn, setMultiColumn] = usePersistantState("multiColumn", true)
     const [fontSizeDelta, setFontSizeDelta] = usePersistantState("fontSize", 0)
@@ -19,7 +21,7 @@ const TabContent: React.FC<Props> = ({ tab }) => {
     const incrementFontSize = () => setFontSizeDelta(fontSizeDelta + 1)
     const decrementFontSize = () => setFontSizeDelta(fontSizeDelta - 1)
     const fontStyle = {
-        fontSize: `${2 + (0.5 * fontSizeDelta)}rem`
+        fontSize: `${2 + (0.2 * fontSizeDelta)}rem`
     }
 
     return (
@@ -35,10 +37,20 @@ const TabContent: React.FC<Props> = ({ tab }) => {
                         Toggle Column Layout
                     </button>
                     <div className="font-controls">
-                        <button aria-label="Decrease font size" title="Decrease font size" disabled={fontSizeDelta < -2} onClick={decrementFontSize}>
+                        <button
+                            aria-label="Decrease font size"
+                            title="Decrease font size"
+                            disabled={fontSizeDelta < -MAX_FONT_SIZE_DELTA}
+                            onClick={decrementFontSize}
+                        >
                             <IconMinus />
                         </button>
-                        <button aria-label="Increase font size" title="Increase font size" disabled={fontSizeDelta > 2} onClick={incrementFontSize}>
+                        <button
+                            aria-label="Increase font size"
+                            title="Increase font size"
+                            disabled={fontSizeDelta > MAX_FONT_SIZE_DELTA}
+                            onClick={incrementFontSize}
+                        >
                             <IconPlus />
                         </button>
                     </div>
