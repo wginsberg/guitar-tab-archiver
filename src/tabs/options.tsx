@@ -50,6 +50,16 @@ export default function SettingsPage() {
       .then(() => setLastDeletion(tabName))
   }
 
+  const onSelectTab = (artist: string, song: string) => {
+    const name = `${artist} - ${song}`
+
+    const searchParams = new URLSearchParams()
+    searchParams.append("name", name)
+    document.location.search = searchParams.toString()
+
+    setActiveTab(name)
+  }
+
   const hasTabGroups = tabGroups.length > 0
 
   if (!hasTabGroups) return (
@@ -81,7 +91,7 @@ export default function SettingsPage() {
               <li key={`${artist} - ${song}`}>
                 <TabItem
                   song={song}
-                  onSelect={() => setActiveTab(`${artist} - ${song}`)}
+                  onSelect={() => onSelectTab(artist, song)}
                   onDelete={() => deleteTab(`${artist} - ${song}`)}
                 />
               </li>
