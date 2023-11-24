@@ -28,11 +28,16 @@ const TabContent: React.FC<Props> = ({ tab }) => {
                     -
                     <span> {tab.song}</span>
                 </h3>
-                <button onClick={() => setMultiColumn(!mulitColumn)}>
-                    Toggle Column Layout
-                </button>
-                <button disabled={fontSizeDelta > 2} onClick={incrementFontSize}>+</button>
-                <button disabled={fontSizeDelta < -2} onClick={decrementFontSize}>-</button>
+                <div className="tab-controls">
+                    <button onClick={() => setMultiColumn(!mulitColumn)}>
+                        Toggle Column Layout
+                    </button>
+                    <div className="font-controls">
+                        <span>Font size</span>
+                        <button disabled={fontSizeDelta > 2} onClick={incrementFontSize}>+</button>
+                        <button disabled={fontSizeDelta < -2} onClick={decrementFontSize}>-</button>
+                    </div>
+                </div>
             </div>
             <pre className={classnames({ split: mulitColumn, center: !mulitColumn })} style={fontStyle}>
                 {chunks.map((chunk, i) => (
