@@ -1,44 +1,45 @@
-#popup {
+html {
     width: 320px;
-
-    ol {
-        padding-left: 0;
-    }
-    li {
-        margin-bottom: 12px;
-        display: flex;
-        flex-direction: column;
-    }
-    li a {
-        text-decoration: none;
-    }
-    li .artist {
-        color: initial;
-    }
-    li .song {
-        text-decoration: underline;
-    }
-    footer {
-        display: grid;
-        grid-template-columns: auto auto;
-        margin-bottom: 1.5rem;
-    }
-    footer :nth-child(2) {
-        justify-self: end;
-    }
-    footer > a {
-        display: flex;
-        align-items: center;
-    }
-    footer .icon {
-        text-decoration: none;
-        font-size: large;
-        padding-right: 4px;
-    }
-    footer a {
-        text-decoration: none;
-    }
-    footer span {
-        text-decoration: underline;
-    }    
 }
+h1 {
+    margin-top: 0.5rem;
+}
+ol {
+    padding-left: 0;
+}
+li {
+    margin-bottom: 12px;
+    display: flex;
+    flex-direction: column;
+}
+li a {
+    text-decoration: none;
+}
+li .artist {
+    color: initial;
+}
+li .song {
+    text-decoration: underline;
+}
+footer {
+    display: grid;
+    grid-template-columns: auto auto;
+}
+footer :nth-child(2) {
+    justify-self: end;
+}
+footer > a {
+    display: flex;
+    align-items: center;
+}
+footer .icon {
+    text-decoration: none;
+    font-size: large;
+    padding-right: 4px;
+}
+footer a {
+    text-decoration: none;
+}
+footer span {
+    text-decoration: underline;
+}    

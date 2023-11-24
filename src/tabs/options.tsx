@@ -63,7 +63,7 @@ export default function SettingsPage() {
   const hasTabGroups = tabGroups.length > 0
 
   if (!hasTabGroups) return (
-    <main id="settings">
+    <main>
       <h1 className="center">Guitar Tab Archiver</h1>
       <div className="center">
         <p>No guitar tabs archived yet.</p>
@@ -76,7 +76,7 @@ export default function SettingsPage() {
 
 
   return (
-    <main id="settings">
+    <main>
       <h1 className="center">Guitar Tab Archiver</h1>
       <p className="center">
         <a href="/tabs/advanced.html">Advanced Settings</a>
