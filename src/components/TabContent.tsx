@@ -3,6 +3,8 @@ import classnames from "classnames"
 import type { Tab } from "~types/chords"
 import { sanitizeTabContent, parseTabContent } from "~utils"
 import usePersistantState from "~hooks/usePersistantState"
+import IconMinus from "react:~/assets/magnifying-glass-with-minus-sign-svgrepo-com.svg"
+import IconPlus from "react:~/assets/plus-zoom-magnifying-glass-interface-symbol-svgrepo-com.svg"
 
 interface Props {
     tab: Tab
@@ -33,9 +35,12 @@ const TabContent: React.FC<Props> = ({ tab }) => {
                         Toggle Column Layout
                     </button>
                     <div className="font-controls">
-                        <span>Font size</span>
-                        <button disabled={fontSizeDelta > 2} onClick={incrementFontSize}>+</button>
-                        <button disabled={fontSizeDelta < -2} onClick={decrementFontSize}>-</button>
+                        <button aria-label="Increase font size" title="Increase font size" disabled={fontSizeDelta > 2} onClick={incrementFontSize}>
+                            <IconPlus />
+                        </button>
+                        <button aria-label="Decrease font size" title="Decrease font size" disabled={fontSizeDelta < -2} onClick={decrementFontSize}>
+                            <IconMinus />
+                        </button>
                     </div>
                 </div>
             </div>
