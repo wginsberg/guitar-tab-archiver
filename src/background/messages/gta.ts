@@ -11,7 +11,6 @@ const handler: PlasmoMessaging.Handler<GTAMessageType, GTAMessage, GTAMessageRes
         }
         case "GET_RECENTS": {
             const recents = await getRecents()
-            console.log({recents})
             res.send(recents)
             break
         }

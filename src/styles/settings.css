@@ -56,6 +56,9 @@
     .tab-section {
         margin-bottom: 2rem;
     }
+    #tab pre {
+        font-size: 2rem;
+    }
     #tab pre.split .tab-section {
         min-width: 33.3vw;
     }

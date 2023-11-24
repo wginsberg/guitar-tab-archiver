@@ -1,7 +1,8 @@
 import React, { useState, useRef, useEffect, type FormEventHandler } from "react"
 
 import { sendGTAMessage } from "~messaging"
-import { useTabGroups, useTab } from "~hooks"
+import useTabGroups from "~hooks/useTabGroups"
+import useTab from "~hooks/useTab"
 import TabContent from "~components/TabContent"
 import TabItem from "~components/TabItem"
 import SearchForm from "~components/SearchForm"
