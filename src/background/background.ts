@@ -1,10 +1,6 @@
 import { DB_STORE_TABS, DB_KEY_RECENTS, DB_STORE_META } from "./constants"
 import { getIndexedDB, getOneFromObjectStore, getKeysFromObjectStore, deleteOneFromObjectStore } from "./indexedDB"
 
-import seed from "./seed"
-
-seed.forEach((({ tabName, tabContent}) => addNewTab(tabName, tabContent)))
-
 async function addNewTab(tabName: string, tabContent: string) {
     const db = await getIndexedDB()
     const transaction = db.transaction([DB_STORE_TABS, DB_STORE_META], "readwrite")
