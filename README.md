@@ -1,5 +1,7 @@
 # Guitar Tab Archiver
 
+This extension used the [Plasmo](https://docs.plasmo.com/) framework.
+
 ## Build instructions
 Built with
 * Node 19.4.0
