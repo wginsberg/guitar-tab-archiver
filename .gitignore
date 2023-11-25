@@ -28,6 +28,7 @@ yarn-error.log*
 out/
 build/
 dist/
+source.zip
 
 # plasmo - https://www.plasmo.com
 .plasmo
