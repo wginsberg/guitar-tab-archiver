@@ -6,7 +6,7 @@ interface Tab {
     song: string
 }
 
-function useRecentTabs(): Tab[] {
+function useRecentTabs(dependencies: any[]): Tab[] {
     const [recents, setRecents] = useState([] as Tab[])
 
     useEffect(() => {
@@ -19,7 +19,7 @@ function useRecentTabs(): Tab[] {
                 .reverse()
             )
             .then(setRecents)
-    }, [])
+    }, dependencies)
 
     return recents
 }

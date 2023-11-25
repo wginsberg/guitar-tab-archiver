@@ -1,7 +1,8 @@
-import React, { useState, useRef, useEffect, type FormEventHandler } from "react"
+import React, { useState, useRef, useEffect } from "react"
 
 import { sendGTAMessage } from "~messaging"
 import useTabGroups from "~hooks/useTabGroups"
+import usePing from "~hooks/usePing"
 import useTab from "~hooks/useTab"
 import TabContent from "~components/TabContent"
 import TabItem from "~components/TabItem"
@@ -13,11 +14,13 @@ import "~styles/index.css"
 import "~styles/settings.css"
 
 export default function SettingsPage() {
+  const lastPing = usePing()
   const [lastDeletion, setLastDeletion] = useState("")
-  const tabGroups = useTabGroups(lastDeletion)
+  const dirtyDependencies = [lastPing, lastDeletion]
+
+  const tabGroups = useTabGroups(dirtyDependencies)
   const [activeTab, setActiveTab] = useState("")
   const tabContentRef = useRef<HTMLDivElement>(null)
-
   const activeTabContent = useTab(activeTab)
 
   useEffect(() => {

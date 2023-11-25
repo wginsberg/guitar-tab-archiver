@@ -1,10 +1,12 @@
 import React from "react"
 import SearchForm from "~components/SearchForm"
+import usePing from "~hooks/usePing"
 import useRecentTabs from "~hooks/useRecentTabs"
 import "~styles/popup.css"
 
 const PopupPage = () => {
-  const recentTabs = useRecentTabs()
+  const lastPing = usePing()
+  const recentTabs = useRecentTabs([lastPing])
   const hasRecentTabs = recentTabs.length > 0
 
   if (hasRecentTabs) {

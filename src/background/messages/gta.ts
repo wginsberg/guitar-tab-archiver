@@ -2,11 +2,14 @@ import type { PlasmoMessaging } from "@plasmohq/messaging"
 import type { GTAMessageType, GTAMessage, GTAMessageResult } from "~types/messages"
 import { addNewTab, getRecents, getAll, getTab, deleteTab, deleteAllTabs } from "~background/background"
 
+import { pingExtensionPage } from "~messaging"
+
 const handler: PlasmoMessaging.Handler<GTAMessageType, GTAMessage, GTAMessageResult> = async (req, res) => {
     switch (req.body.type) {
         case "ADD": {
             const { tabName, tabContent} = req.body
             await addNewTab(tabName, tabContent)
+            pingExtensionPage()
             break
         }
         case "GET_RECENTS": {
@@ -28,10 +31,12 @@ const handler: PlasmoMessaging.Handler<GTAMessageType, GTAMessage, GTAMessageRes
         case "DELETE_ONE": {
             const { tabName } = req.body
             await deleteTab(tabName)
+            pingExtensionPage()
             break
         }
         case "DELETE_ALL": {
             await deleteAllTabs()
+            pingExtensionPage()
             break
         }
         default: {

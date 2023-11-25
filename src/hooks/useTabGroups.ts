@@ -2,7 +2,7 @@ import { useState, useEffect } from "react"
 import type { TabGroup } from "~types/chords"
 import { sendGTAMessage } from "~messaging"
 
-export default function useTabGroups(dependency: string): TabGroup[] {
+export default function useTabGroups(dependencies: any[]): TabGroup[] {
     const [tabGroups, setTabGroups] = useState([] as TabGroup[])
 
     useEffect(() => {
@@ -25,7 +25,7 @@ export default function useTabGroups(dependency: string): TabGroup[] {
                     .map(([artist, songs]) => ({ artist, songs }))
             )
             .then(setTabGroups)
-    }, [dependency])
+    }, dependencies)
 
     return tabGroups
 }

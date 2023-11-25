@@ -8,3 +8,7 @@ export async function sendGTAMessage(body: GTAMessage) {
     })
     return result
 }
+
+export async function pingExtensionPage() {
+    chrome.runtime.sendMessage("ping")
+}
