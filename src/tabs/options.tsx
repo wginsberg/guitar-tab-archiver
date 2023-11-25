@@ -30,9 +30,11 @@ export default function SettingsPage() {
     setActiveTab(name)
   }, [])
 
-  useEffect(() => {
+  const scrollTabIntoView = () => {
     tabContentRef.current?.scrollIntoView()
-  }, [activeTabContent])
+  }
+
+  useEffect(scrollTabIntoView, [activeTabContent])
 
   const deleteTab = (tabName: string) => {
     const confirmation = confirm(`Are you sure you want to delete ${tabName}`)
@@ -49,6 +51,8 @@ export default function SettingsPage() {
 
     const nextURL = `${location.pathname}?${searchParams.toString()}`
     history.replaceState(null, null, nextURL)
+
+    if (name === activeTab) scrollTabIntoView()
 
     setActiveTab(name)
   }
