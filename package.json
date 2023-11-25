@@ -1,7 +1,7 @@
 {
   "name": "guitar-tab-archiver",
   "displayName": "Guitar Tab Archiver",
-  "version": "0.4.0",
+  "version": "0.4.1",
   "description": "Archive tabs and chords",
   "author": "will",
   "scripts": {
