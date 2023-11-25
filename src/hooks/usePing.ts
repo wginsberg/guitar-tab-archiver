@@ -6,10 +6,12 @@ export default function(): PingCount {
     const [pingCount, setPingCount] = useState(0)
 
     useEffect(() => {
-        chrome.runtime.onMessage.addListener((message) => {
+        function listener () {
             setPingCount(x => x + 1)
-        })
-    })
+        }
+        chrome.runtime.onMessage.addListener(listener)
+        return () => chrome.runtime.onMessage.removeListener(listener)
+    }, [])
 
     return pingCount
 }
