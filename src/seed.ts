@@ -1,6 +1,6 @@
 import { type GTAMessage } from "~types/messages"
 
-const chords = `
+const SFBC = `
 C
 Old San Francisco, San Francisco B.C.
 I lived with my true love and she lived with me.
@@ -101,27 +101,94 @@ Old San Francisco, San Francisco B.C.
 X
 `
 
+const loremIpsum = `
+[Verse]
+C               G              Am          F
+Lorem ipsum dolor sit amet, consectetur
+C             G              Am         F
+Adipiscing elit, sed do eiusmod tempor
+C               G              Am        F
+Incididunt ut labore et dolore magna
+C              G              Am       F
+Aliqua. Ut enim ad minim veniam, quis nostrud
+
+[Chorus]
+C          G       Am       F
+Exercitation ullamco laboris
+C          G       Am       F
+Nisi ut aliquip ex ea commodo
+C          G       Am       F
+Consequat. Duis aute irure dolor
+C             G       Am      F
+In reprehenderit in voluptate velit esse
+C          G       Am       F
+Cillum dolore eu fugiat nulla pariatur
+
+[Verse]
+C               G              Am          F
+Excepteur sint occaecat cupidatat non proident
+C             G              Am         F
+Sunt in culpa qui officia deserunt
+C               G              Am        F
+Mollit anim id est laborum. Sed ut perspiciatis
+C              G              Am       F
+Unde omnis iste natus error sit voluptatem
+
+[Chorus]
+C          G       Am       F
+Accusantium doloremque laudantium
+C          G       Am       F
+Totam rem aperiam, eaque ipsa quae
+C          G       Am       F
+Ab illo inventore veritatis et quasi
+C             G       Am      F
+Architecto beatae vitae dicta sunt explicabo
+C          G       Am       F
+Nemo enim ipsam voluptatem quia
+C          G       Am       F
+Voluptas sit aspernatur aut odit aut fugit
+C             G       Am      F
+Sed quia consequuntur magni dolores
+C          G       Am       F
+Eos qui ratione voluptatem sequi nesciunt
+C          G       Am       F
+Neque porro quisquam est, qui dolorem
+C             G       Am      F
+Ipsum quia dolor sit amet, consectetur
+C          G       Am       F
+Adipisci velit, sed quia non numquam
+C          G       Am       F
+Eius modi tempora incidunt ut labore
+C             G       Am      F
+Et dolore magnam aliquam quaerat voluptatem
+`
+
 export default {
     "events": [
         {
             "type": "ADD",
+            "tabName": "The Phantasmic Fabricators - Simulated Serenade",
+            "tabContent": loremIpsum
+        },
+        {
+            "type": "ADD",
             "tabName": "Silver Jews - SAN FRANCISO B C CHORDS",
-            "tabContent": chords
+            "tabContent": SFBC
         },
         {
             "type": "ADD",
-            "tabName": "Test Artist - TEST CHORDS",
-            "tabContent": "chords"
+            "tabName": "Andy Shauf - NORM CHORDS",
+            "tabContent": "norm"
         },
         {
             "type": "ADD",
-            "tabName": "Test Artist - TEST CHORDS ver 2",
-            "tabContent": "chords v2"
+            "tabName": "Neil Young - AFTER THE GOLD RUSH CHORDS",
+            "tabContent": "after the gold rush"
         },
         {
             "type": "ADD",
             "tabName": "King Gizzard and the Lizard Wizard - ROBOT STOP",
-            "tabContent": "tabtabtabtab"
+            "tabContent": "robot stop"
         },
     ] as GTAMessage[]
 }

@@ -4,7 +4,10 @@ import seed from "~seed";
 
 export default function SeedPage() {
     useEffect(() => {
-        seed.events.forEach(sendGTAMessage)
+        Promise.all(seed.events.map(sendGTAMessage))
+            .then(() => {
+                window.location.pathname = "/tabs/options.html"
+            })
     }, [])
 
     return "seed"
