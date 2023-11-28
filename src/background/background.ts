@@ -1,5 +1,5 @@
 import { DB_STORE_TABS, DB_KEY_RECENTS, DB_STORE_META } from "./constants"
-import { getIndexedDB, getOneFromObjectStore, getKeysFromObjectStore, deleteOneFromObjectStore } from "./indexedDB"
+import { getIndexedDB, getOneFromObjectStore, getKeysFromObjectStore, deleteOneFromObjectStore, getCountFromObjectStore } from "./indexedDB"
 
 async function addNewTab(tabName: string, tabContent: string) {
     const db = await getIndexedDB()
@@ -41,6 +41,12 @@ async function getTab(tabName: string) {
     return getOneFromObjectStore(transaction.objectStore(DB_STORE_TABS), tabName)
 }
 
+async function getTabCount() {
+    const db = await getIndexedDB()
+    const transaction = db.transaction([DB_STORE_TABS], "readonly")
+    return getCountFromObjectStore(transaction.objectStore(DB_STORE_TABS))
+}
+
 async function deleteTab(tabName: string) {
     const db = await getIndexedDB()
     const transaction = db.transaction([DB_STORE_TABS, DB_STORE_META], "readwrite")
@@ -68,6 +74,7 @@ export {
     getRecents,
     getAll,
     getTab,
+    getTabCount,
     deleteTab,
     deleteAllTabs
 }

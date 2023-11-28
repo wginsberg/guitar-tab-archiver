@@ -29,6 +29,14 @@ function getOneFromObjectStore(objectStore: IDBObjectStore, key: string): Promis
     })
 }
 
+function getCountFromObjectStore(objectStore: IDBObjectStore): Promise<Number> {
+    return new Promise((resolve, reject) => {
+        const request = objectStore.count()
+        request.onsuccess = () => resolve(request.result)
+        request.onerror = reject
+    })
+}
+
 function getKeysFromObjectStore(objectStore: IDBObjectStore): Promise<any> {
     return new Promise((resolve, reject) => {
         const request = objectStore.getAllKeys()
@@ -48,6 +56,7 @@ function deleteOneFromObjectStore(objectStore: IDBObjectStore, key: string): Pro
 export {
     getIndexedDB,
     getOneFromObjectStore,
+    getCountFromObjectStore,
     getKeysFromObjectStore,
     deleteOneFromObjectStore
 }
