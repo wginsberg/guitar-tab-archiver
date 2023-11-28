@@ -7,12 +7,10 @@ import "~styles/popup.css"
 
 const PopupPage = () => {
   const lastPing = usePing()
-  const recentTabs = useRecentTabs([lastPing])
+  const [recentTabs, isRecentTabsLoading] = useRecentTabs([lastPing])
   const [tabCount, isTabCountLoading] = useTabCount()
 
-  console.log({tabCount})
-
-  const isLoadingState = isTabCountLoading
+  const isLoadingState = isTabCountLoading || isRecentTabsLoading
   const hasRecentTabs = recentTabs.length > 0
 
   if (isLoadingState) {
