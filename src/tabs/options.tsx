@@ -34,13 +34,19 @@ export default function SettingsPage() {
     tabContentRef.current?.scrollIntoView()
   }
 
-  useEffect(scrollTabIntoView, [activeTabContent])
+  useEffect(() => {
+    if (!activeTabContent) return
+    scrollTabIntoView()
+  }, [activeTabContent])
 
   const deleteTab = (tabName: string) => {
     const confirmation = confirm(`Are you sure you want to delete ${tabName}`)
     if (!confirmation) return
     sendGTAMessage({ type: "DELETE_ONE", tabName })
-      .then(() => setLastDeletion(tabName))
+      .then(() => {
+        setLastDeletion(tabName)
+        if (activeTab === tabName) setActiveTab("")
+      })
   }
 
   const onSelectTab = (artist: string, song: string) => {

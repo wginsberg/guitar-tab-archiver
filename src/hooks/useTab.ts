@@ -6,7 +6,10 @@ export default function useTab(name: string): Tab | undefined {
     const [tab, setTab] = useState<Tab>()
 
     useEffect(() => {
-        if (!name) return
+        if (!name) {
+            setTab(undefined)
+            return
+        }
         sendGTAMessage({ type: "GET_ONE", tabName: name })
             .then(content => {
                 const [artist, song] = name.split(" - ")
