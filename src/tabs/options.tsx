@@ -63,6 +63,13 @@ export default function SettingsPage() {
     setActiveTab(name)
   }
 
+  const onCloseTab = () => {  
+    const nextURL = location.pathname
+    history.replaceState(null, null, nextURL)
+
+    setActiveTab(null)
+  }
+
   const hasTabGroups = tabGroups.length > 0
 
   if (!hasTabGroups) return (
@@ -76,7 +83,6 @@ export default function SettingsPage() {
       </div>
     </main>
   )
-
 
   return (
     <main>
@@ -105,7 +111,7 @@ export default function SettingsPage() {
       <div>
         {activeTabContent && (
           <div ref={tabContentRef} >
-            <TabContent tab={activeTabContent} />
+            <TabContent tab={activeTabContent} close={onCloseTab} />
           </div>
         )}
       </div>

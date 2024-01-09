@@ -1,4 +1,4 @@
-import React, { useState } from "react"
+import React, { useEffect, useState } from "react"
 import classnames from "classnames"
 import type { Tab } from "~types/chords"
 import { sanitizeTabContent, parseTabContent } from "~utils"
@@ -7,14 +7,25 @@ import IconMinus from "react:~/assets/magnifying-glass-with-minus-sign-svgrepo-c
 import IconPlus from "react:~/assets/plus-zoom-magnifying-glass-interface-symbol-svgrepo-com.svg"
 
 interface Props {
-    tab: Tab
+    tab: Tab,
+    close: () => void
 }
 
 const MAX_FONT_SIZE_DELTA = 5
 
-const TabContent: React.FC<Props> = ({ tab }) => {
+const TabContent: React.FC<Props> = ({ tab, close }) => {
     const [mulitColumn, setMultiColumn] = usePersistantState("multiColumn", true)
     const [fontSizeDelta, setFontSizeDelta] = usePersistantState("fontSize", 0)
+
+    useEffect(() => {
+        const listener = (event: KeyboardEvent) => {
+            if (event.key === "Escape") {
+                close()
+            }
+        }
+        addEventListener("keydown", listener)
+        return () => removeEventListener("keydown", listener)
+    }, [])
 
     const chunks = parseTabContent(sanitizeTabContent(tab.content))
 
