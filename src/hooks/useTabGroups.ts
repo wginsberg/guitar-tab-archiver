@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react"
 import type { TabGroup } from "~types/chords"
 import { sendGTAMessage } from "~messaging"
+import { parseTabName } from "~utils"
 
 export default function useTabGroups(dependencies: any[]): TabGroup[] {
     const [tabGroups, setTabGroups] = useState([] as TabGroup[])
@@ -9,7 +10,7 @@ export default function useTabGroups(dependencies: any[]): TabGroup[] {
         sendGTAMessage({ type: "GET_ALL" })
             .then(titles => 
                 (titles as string[]).map(recent => {
-                    const [artist, song] = recent.split(" - ")
+                    const [artist, song] = parseTabName(recent)
                     return { artist, song }
                 })
                 .reduce((prev, next) => {

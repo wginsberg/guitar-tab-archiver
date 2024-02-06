@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react"
 import { sendGTAMessage } from "~messaging";
+import { parseTabName } from "~utils"
 
 interface Tab {
     artist: string;
@@ -15,7 +16,7 @@ function useRecentTabs(dependencies: any[]): [Tab[], Boolean] {
             .then(recents =>  {
                 const formattedRecents = (recents as string[])
                     .map(recent => {
-                        const [artist, song] = recent.split(" - ")
+                        const [artist, song] = parseTabName(recent)
                         return { artist, song }
                     })
                     .reverse()
