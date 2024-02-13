@@ -6,6 +6,7 @@
   "author": "will",
   "scripts": {
     "dev": "plasmo dev",
+    "start": "plasmo dev & web-ext run --target=chromium --source-dir=build/chrome-mv3-dev",
     "build-clean": "rm -rf build/*.zip",
     "build-chrome": "plasmo build && (cd build/chrome-mv3-prod && zip -r ../chrome-v$npm_package_version.zip *)",
     "build-firefox": "plasmo build --target=firefox-mv2 && (cd build/firefox-mv2-prod && zip -r ../firefox-v$npm_package_version.zip *)",
