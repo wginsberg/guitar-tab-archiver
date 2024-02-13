@@ -36,8 +36,9 @@ export default function SettingsPage() {
 
   useEffect(() => {
     if (!activeTabContent) return
+    if (!tabContentRef.current) return
     scrollTabIntoView()
-  }, [activeTabContent])
+  }, [tabContentRef, activeTabContent])
 
   const deleteTab = (tabName: string) => {
     const confirmation = confirm(`Are you sure you want to delete ${tabName}`)
