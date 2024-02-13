@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react"
+import React, { useEffect, useRef, useState } from "react"
 import classnames from "classnames"
 import type { Tab } from "~types/chords"
 import { sanitizeTabContent, parseTabContent } from "~utils"
@@ -16,6 +16,7 @@ const MAX_FONT_SIZE_DELTA = 5
 const TabContent: React.FC<Props> = ({ tab, close }) => {
     const [mulitColumn, setMultiColumn] = usePersistantState("multiColumn", true)
     const [fontSizeDelta, setFontSizeDelta] = usePersistantState("fontSize", 0)
+    const preRef = useRef(null)
 
     useEffect(() => {
         const listener = (event: KeyboardEvent) => {
@@ -26,6 +27,10 @@ const TabContent: React.FC<Props> = ({ tab, close }) => {
         addEventListener("keydown", listener)
         return () => removeEventListener("keydown", listener)
     }, [])
+
+    useEffect(() => {
+        preRef.current.scrollTo({ left: 0, top: 0 })
+    }, [tab])
 
     const chunks = parseTabContent(sanitizeTabContent(tab.content))
 
@@ -67,7 +72,11 @@ const TabContent: React.FC<Props> = ({ tab, close }) => {
                     </div>
                 </div>
             </div>
-            <pre className={classnames({ split: mulitColumn, center: !mulitColumn })} style={fontStyle}>
+            <pre
+                ref={preRef}
+                className={classnames({ split: mulitColumn, center: !mulitColumn })}
+                style={fontStyle}
+            >
                 {chunks.map((chunk, i) => (
                     <div className="tab-section" key={i}>
                         {chunk}
