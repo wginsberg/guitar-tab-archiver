@@ -31,10 +31,5 @@
     "prettier": "3.0.3",
     "typescript": "5.2.2",
     "web-ext": "^8.0.0"
-  },
-  "manifest": {
-    "permissions": [
-      "storage"
-    ]
   }
 }
